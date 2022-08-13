@@ -237,6 +237,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'GeoIP' => \Torann\GeoIP\Facades\GeoIP::class,
+        'LogActivity' => App\Helpers\LogActivity::class,
     ],
 
 ];

@@ -35,3 +35,6 @@ Route::post('/subscribe', 'APIsController@subscribeSubmit');
 Route::post('/comment', 'APIsController@commentSubmit');
 Route::post('/order', 'APIsController@orderSubmit');
 Route::post('/contact', 'APIsController@ContactPageSubmit');
+
+Route::get('website/add-to-log', 'APIsController@myTestAddToLog');
+Route::get('website/logActivity', 'APIsController@logActivity');

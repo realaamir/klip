@@ -93,7 +93,14 @@ INSERT INTO `klip_analytics_pages` (`id`, `visitor_id`, `ip`, `title`, `name`, `
 (64,	1,	'::1',	'Dashboard &raquo; Banners settings',	'unknown',	'http://localhost/klip/index.php/admin/webmaster/banners/3/edit',	'0.05410504',	'2022-08-13',	'12:30:02',	'2022-08-13 07:00:02',	'2022-08-13 07:00:02'),
 (65,	1,	'::1',	'Dashboard &raquo; Analytics',	'unknown',	'http://localhost/klip/index.php/admin/analytics/date',	'0.05670595',	'2022-08-13',	'12:33:14',	'2022-08-13 07:03:14',	'2022-08-13 07:03:14'),
 (66,	1,	'::1',	'Dashboard &raquo; Visitors History',	'unknown',	'http://localhost/klip/index.php/admin/visitors',	'0.03218198',	'2022-08-13',	'12:33:19',	'2022-08-13 07:03:19',	'2022-08-13 07:03:19'),
-(67,	1,	'::1',	'Dashboard &raquo; Analytics',	'unknown',	'http://localhost/klip/index.php/admin/analytics/browser',	'0.05453491',	'2022-08-13',	'12:33:35',	'2022-08-13 07:03:35',	'2022-08-13 07:03:35');
+(67,	1,	'::1',	'Dashboard &raquo; Analytics',	'unknown',	'http://localhost/klip/index.php/admin/analytics/browser',	'0.05453491',	'2022-08-13',	'12:33:35',	'2022-08-13 07:03:35',	'2022-08-13 07:03:35'),
+(68,	1,	'::1',	'Dashboard &raquo; Categories of  Test',	'unknown',	'http://localhost/klip/index.php/admin/10/categories',	'0.04865098',	'2022-08-13',	'14:15:22',	'2022-08-13 08:45:22',	'2022-08-13 08:45:22'),
+(69,	1,	'::1',	'Dashboard &raquo; Test',	'unknown',	'http://localhost/klip/index.php/admin/10/topics',	'0.04636097',	'2022-08-13',	'14:15:23',	'2022-08-13 08:45:23',	'2022-08-13 08:45:23'),
+(70,	1,	'::1',	'Dashboard &raquo; Test',	'unknown',	'http://localhost/klip/index.php/admin/10/topics/create',	'0.04751086',	'2022-08-13',	'14:15:29',	'2022-08-13 08:45:29',	'2022-08-13 08:45:29'),
+(71,	1,	'::1',	'Dashboard &raquo; Site Sections',	'unknown',	'http://localhost/klip/index.php/admin/webmaster/sections/10/edit',	'0.05388713',	'2022-08-13',	'14:16:01',	'2022-08-13 08:46:01',	'2022-08-13 08:46:01'),
+(72,	1,	'::1',	'Dashboard &raquo; Site Sections',	'unknown',	'http://localhost/klip/index.php/admin/webmaster/sections/5/edit',	'0.04716206',	'2022-08-13',	'14:18:01',	'2022-08-13 08:48:01',	'2022-08-13 08:48:01'),
+(73,	1,	'::1',	'http://localhost/klip/index.php/api/v1/website/add-to-log',	'unknown',	'http://localhost/klip/index.php/api/v1/website/add-to-log',	'0.02449703',	'2022-08-13',	'19:18:15',	'2022-08-13 13:48:15',	'2022-08-13 13:48:15'),
+(74,	1,	'::1',	'http://localhost/klip/index.php/api/v1/website/logActivity',	'unknown',	'http://localhost/klip/index.php/api/v1/website/logActivity',	'0.03495479',	'2022-08-13',	'19:18:27',	'2022-08-13 13:48:27',	'2022-08-13 13:48:27');
 
 DROP TABLE IF EXISTS `klip_analytics_visitors`;
 CREATE TABLE `klip_analytics_visitors` (
@@ -565,6 +572,25 @@ INSERT INTO `klip_languages` (`id`, `title`, `code`, `direction`, `left`, `right
 (9,	'Deutsch',	'de',	'ltr',	'left',	'right',	'de',	1,	0,	1,	1,	'2022-08-13 04:54:51',	'2022-08-13 04:57:08'),
 (10,	'ภาษาไทย',	'th',	'ltr',	'left',	'right',	'th',	1,	0,	1,	1,	'2022-08-13 04:54:51',	'2022-08-13 04:57:12');
 
+DROP TABLE IF EXISTS `klip_log_activities`;
+CREATE TABLE `klip_log_activities` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `subject` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `url` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `method` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ip` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `agent` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_id` int DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `klip_log_activities` (`id`, `subject`, `url`, `method`, `ip`, `agent`, `user_id`, `created_at`, `updated_at`) VALUES
+(1,	'My Testing Add To Log.',	'http://localhost/klip/index.php/api/v1/website/add-to-log',	'GET',	'::1',	'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36',	1,	'2022-08-13 13:48:15',	'2022-08-13 13:48:15'),
+(2,	'My Testing Add To Log.',	'http://localhost/klip/index.php/api/v1/website/add-to-log',	'GET',	'::1',	'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36',	1,	'2022-08-13 13:48:18',	'2022-08-13 13:48:18'),
+(3,	'My Testing Add To Log.',	'http://localhost/klip/index.php/api/v1/website/add-to-log',	'GET',	'::1',	'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36',	1,	'2022-08-13 13:48:18',	'2022-08-13 13:48:18');
+
 DROP TABLE IF EXISTS `klip_maps`;
 CREATE TABLE `klip_maps` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
@@ -686,7 +712,8 @@ INSERT INTO `klip_migrations` (`id`, `migration`, `batch`) VALUES
 (29,	'2020_09_11_190914_create_topic_categories_table',	1),
 (30,	'2020_09_11_190916_create_topic_fields_table',	1),
 (31,	'2020_09_11_190917_create_webmaster_section_fields_table',	1),
-(32,	'2020_09_11_201046_create_languages_table',	1);
+(32,	'2020_09_11_201046_create_languages_table',	1),
+(33,	'2022_08_13_190952_create_log_activity_table',	2);
 
 DROP TABLE IF EXISTS `klip_password_resets`;
 CREATE TABLE `klip_password_resets` (
@@ -735,7 +762,7 @@ CREATE TABLE `klip_permissions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `klip_permissions` (`id`, `name`, `view_status`, `add_status`, `edit_status`, `delete_status`, `active_status`, `analytics_status`, `inbox_status`, `newsletter_status`, `calendar_status`, `banners_status`, `settings_status`, `webmaster_status`, `data_sections`, `home_status`, `home_links`, `home_details_ar`, `home_details_en`, `home_details_ch`, `home_details_hi`, `home_details_es`, `home_details_ru`, `home_details_pt`, `home_details_fr`, `home_details_de`, `home_details_th`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(1,	'Webmaster',	0,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	'1,2,3,4,5,6,7,8,9',	0,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	1,	1,	NULL,	'2022-08-13 04:54:51',	'2022-08-13 04:54:51'),
+(1,	'Webmaster',	0,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	'1,2,3,4,5,6,7,8,9,10',	0,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	1,	1,	NULL,	'2022-08-13 04:54:51',	'2022-08-13 08:45:18'),
 (2,	'Website Manager',	0,	1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	0,	'1,2,3,4,5,6,7,8,9',	0,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	1,	1,	NULL,	'2022-08-13 04:54:51',	'2022-08-13 04:54:51'),
 (3,	'Business User',	1,	1,	1,	1,	1,	0,	0,	0,	0,	1,	0,	0,	'9,8,6,5,4,3,2',	0,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	1,	1,	NULL,	'2022-08-13 04:54:51',	'2022-08-13 06:57:40');
 
@@ -1341,7 +1368,8 @@ INSERT INTO `klip_webmaster_sections` (`id`, `row_no`, `title_ar`, `title_en`, `
 (5,	5,	'الفيديو',	'Videos',	'视频',	'वीडियो',	'Videos',	'Видео',	'Vídeos',	'Vidéos',	'Videos',	'วิดีโอ',	2,	1,	1,	1,	1,	1,	1,	0,	0,	0,	0,	0,	0,	0,	1,	0,	0,	0,	1,	1,	'الفيديو',	'Videos',	'视频',	'वीडियो',	'Videos',	'Видео',	'Vídeos',	'Vidéos',	'Videos',	'วิดีโอ',	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	'videos',	'videos',	'videos',	'videos',	'videos',	'videos',	'videos',	'videos',	'videos',	'videos',	1,	NULL,	'2022-08-13 04:54:51',	'2022-08-13 04:54:51'),
 (6,	6,	'الصوتيات',	'Audio',	'声音的',	'ऑडियो',	'Audio',	'Аудио',	'Áudio',	'l\'audio',	'Audio',	'เครื่องเสียง',	3,	1,	1,	1,	1,	1,	1,	0,	0,	0,	0,	0,	0,	0,	1,	0,	0,	0,	1,	1,	'الصوتيات',	'Audio',	'Audio',	'ऑडियो',	'Audio',	'Аудио',	'Áudio',	'l\'audio',	'Audio',	'เครื่องเสียง',	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	'audio',	'audio',	'audio',	'audio',	'audio',	'audio',	'audio',	'audio',	'audio',	'audio',	1,	NULL,	'2022-08-13 04:54:51',	'2022-08-13 04:54:51'),
 (8,	8,	'المنتجات',	'Products',	'产品',	'उत्पादों',	'Productos',	'Товары',	'Produtos',	'Produits',	'Produkte',	'สินค้า',	0,	1,	1,	1,	1,	2,	1,	0,	0,	1,	1,	0,	0,	1,	1,	0,	0,	1,	1,	1,	'المنتجات',	'Products',	'产品',	'उत्पादों',	'Productos',	'Товары',	'Produtos',	'Produits',	'Produkte',	'สินค้า',	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	'products',	'products',	'products',	'products',	'products',	'products',	'products',	'products',	'products',	'products',	1,	NULL,	'2022-08-13 04:54:51',	'2022-08-13 04:54:51'),
-(9,	9,	'العملاء',	'Partners',	'伙伴',	'भागीदारों',	'Socias',	'Партнеры',	'Sócias',	'Les partenaires',	'Partners',	'พันธมิตร',	0,	1,	1,	1,	1,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	1,	'العملاء',	'Partners',	'伙伴',	'भागीदारों',	'Socias',	'Партнеры',	'Sócias',	'Les partenaires',	'Partners',	'พันธมิตร',	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	'partners',	'partners',	'partners',	'partners',	'partners',	'partners',	'partners',	'partners',	'partners',	'partners',	1,	NULL,	'2022-08-13 04:54:51',	'2022-08-13 04:54:51');
+(9,	9,	'العملاء',	'Partners',	'伙伴',	'भागीदारों',	'Socias',	'Партнеры',	'Sócias',	'Les partenaires',	'Partners',	'พันธมิตร',	0,	1,	1,	1,	1,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	1,	'العملاء',	'Partners',	'伙伴',	'भागीदारों',	'Socias',	'Партнеры',	'Sócias',	'Les partenaires',	'Partners',	'พันธมิตร',	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	'partners',	'partners',	'partners',	'partners',	'partners',	'partners',	'partners',	'partners',	'partners',	'partners',	1,	NULL,	'2022-08-13 04:54:51',	'2022-08-13 04:54:51'),
+(10,	10,	NULL,	'Test',	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	6,	1,	1,	1,	1,	0,	1,	0,	0,	0,	0,	1,	1,	1,	1,	1,	1,	1,	1,	1,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	'test-1',	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	1,	1,	'2022-08-13 08:45:18',	'2022-08-13 08:48:55');
 
 DROP TABLE IF EXISTS `klip_webmaster_settings`;
 CREATE TABLE `klip_webmaster_settings` (
@@ -1425,4 +1453,4 @@ CREATE TABLE `klip_webmaster_settings` (
 INSERT INTO `klip_webmaster_settings` (`id`, `seo_status`, `analytics_status`, `banners_status`, `inbox_status`, `calendar_status`, `settings_status`, `newsletter_status`, `members_status`, `orders_status`, `shop_status`, `shop_settings_status`, `default_currency_id`, `languages_by_default`, `latest_news_section_id`, `header_menu_id`, `footer_menu_id`, `home_banners_section_id`, `home_text_banners_section_id`, `side_banners_section_id`, `contact_page_id`, `newsletter_contacts_group`, `new_comments_status`, `links_status`, `register_status`, `permission_group`, `api_status`, `api_key`, `home_content1_section_id`, `home_content2_section_id`, `home_content3_section_id`, `home_contents_per_page`, `mail_driver`, `mail_host`, `mail_port`, `mail_username`, `mail_password`, `mail_encryption`, `mail_no_replay`, `mail_title`, `mail_template`, `nocaptcha_status`, `nocaptcha_secret`, `nocaptcha_sitekey`, `google_tags_status`, `google_tags_id`, `google_analytics_code`, `login_facebook_status`, `login_facebook_client_id`, `login_facebook_client_secret`, `login_twitter_status`, `login_twitter_client_id`, `login_twitter_client_secret`, `login_google_status`, `login_google_client_id`, `login_google_client_secret`, `login_linkedin_status`, `login_linkedin_client_id`, `login_linkedin_client_secret`, `login_github_status`, `login_github_client_id`, `login_github_client_secret`, `login_bitbucket_status`, `login_bitbucket_client_id`, `login_bitbucket_client_secret`, `dashboard_link_status`, `text_editor`, `tiny_key`, `timezone`, `version`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
 (1,	1,	0,	1,	0,	0,	1,	0,	0,	0,	0,	0,	5,	'en',	3,	1,	2,	1,	2,	3,	2,	1,	0,	0,	1,	3,	1,	'402784613679330',	0,	4,	9,	20,	'sendmail',	'',	'',	'',	'',	'',	'aamira6@gmail.com',	'{title}',	'{details}',	0,	'',	'',	0,	'',	'',	1,	'test',	'test',	0,	'',	'',	1,	'test',	'test',	0,	'',	'',	0,	'',	'',	0,	'',	'',	0,	0,	NULL,	'UTC',	'8.6.0',	1,	1,	'2022-08-13 04:54:51',	'2022-08-13 06:56:33');
 
--- 2022-08-13 14:09:23
+-- 2022-08-13 19:36:17
