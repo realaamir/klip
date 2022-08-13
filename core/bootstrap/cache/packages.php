@@ -17,6 +17,14 @@
       'NoCaptcha' => 'Anhskohbo\\NoCaptcha\\Facades\\NoCaptcha',
     ),
   ),
+  'arcanedev/log-viewer' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Arcanedev\\LogViewer\\LogViewerServiceProvider',
+      1 => 'Arcanedev\\LogViewer\\Providers\\DeferredServicesProvider',
+    ),
+  ),
   'facade/ignition' => 
   array (
     'providers' => 
