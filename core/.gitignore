@@ -3,7 +3,7 @@
 /public/storage
 /storage/*.key
 /vendor
-/core/bootstrap/
+/core/bootstrap
 .env
 composer.json
 composer.lock
