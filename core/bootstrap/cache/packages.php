@@ -25,6 +25,17 @@
       1 => 'Arcanedev\\LogViewer\\Providers\\DeferredServicesProvider',
     ),
   ),
+  'darkaonline/l5-swagger' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'L5Swagger\\L5SwaggerServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'L5Swagger' => 'L5Swagger\\L5SwaggerFacade',
+    ),
+  ),
   'facade/ignition' => 
   array (
     'providers' => 
@@ -92,6 +103,13 @@
     'providers' => 
     array (
       0 => 'Laravel\\Jetstream\\JetstreamServiceProvider',
+    ),
+  ),
+  'laravel/passport' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Laravel\\Passport\\PassportServiceProvider',
     ),
   ),
   'laravel/sanctum' => 
